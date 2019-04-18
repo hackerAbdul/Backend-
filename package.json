@@ -1,0 +1,26 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "Final year project api stock management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.coventry.ac.uk/qaasima/Final-Project.git"
+  },
+  "keywords": [
+    "restful",
+    "api",
+    "stock",
+    "management",
+    "system",
+    "database"
+  ],
+  "author": "Abdulkadir",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
