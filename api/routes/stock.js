@@ -8,9 +8,35 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-    res.status(200).json({
+    res.status(201).json({
         message:"POST request for stock"
     })
-})
+});
+
+router.get('/:SKU', (req, res, next) => {
+    const id = req.params.SKU;
+    if (id === 'new'){
+        res.status(200).status({
+            message: "special id",
+            id: id
+        });
+    } else {
+        res.status(200).json({
+            message: 'you passed id'
+        });
+    }
+});
+
+router.patch('/:SKU', (req, res, next) => {
+    res.status(200).json({
+        message: "updated product"
+    });
+});
+
+router.delete('/:SKU', (req, res, next) => {
+    res.status(200).json({
+        message: "deleted product"
+    });
+});
 
 module.exports= router;
