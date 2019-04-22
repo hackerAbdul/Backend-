@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+    const stock = {
+        name: req.body.name,
+        quantity: req.body.quantity
+    };
     res.status(201).json({
-        message:"POST request for stock"
+        message:"POST request for stock",
+        createdStock: stock
     })
 });
 

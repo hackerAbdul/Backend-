@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    const order = {
+        stockId: req.body.stockId,
+        quantity: req.body.quantity
+    }
     res.status(201).json({
-        message: "order was created "
+        message: "order was created ",
+        order: order
     });
 });
 
