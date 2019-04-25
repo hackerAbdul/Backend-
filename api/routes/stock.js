@@ -17,11 +17,12 @@ router.get('/', (req, res, next) => {
             error: err
         })
     })
-})
+});
 
 router.post('/', (req, res, next) => {
     const stock = new Stocks({
         _id: new mongoose.Types.ObjectId(),
+        sku: req.body.sku,
         name: req.body.name,
         size: req.body.size,
         colour: req.body.colour,
@@ -32,7 +33,7 @@ router.post('/', (req, res, next) => {
     .then(result => {
         console.log(result);
         res.status(201).json({
-            message:"POST request for stock",
+            message:"New stock Posted",
             createdStock: result
         })
     })
