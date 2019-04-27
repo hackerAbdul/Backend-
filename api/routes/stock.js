@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
+const checkAuth = require('../middleware/check-authentication')
 
 const Stocks = require('../models/stocks');
 
@@ -36,7 +37,7 @@ router.get('/', (req, res, next) => {
     })
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', checkAuth, (req, res, next) => {
     const stock = new Stocks({
         _id: new mongoose.Types.ObjectId(),
         sku: req.body.sku,

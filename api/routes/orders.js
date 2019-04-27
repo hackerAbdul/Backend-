@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const checkAuth = require('../middleware/check-authentication')
 
 const Orders = require('../models/orders')
 
@@ -60,7 +61,7 @@ router.get('/:orderId', (req, res, next) => {
     })
 });
 
-router.delete('/:orderId', (req, res, next) => {
+router.delete('/:orderId', checkAuth, (req, res, next) => {
     Orders.remove({_id: req.params.orderId})
     .exec()
     .then(result => {
