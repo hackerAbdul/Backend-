@@ -12,6 +12,7 @@ const ordersRoutes = require('./api/routes/orders');
 mongoose.connect('mongodb+srv://304CEM:'+ process.env.MONGO_ATLAS_PW +'@api-2ear1.mongodb.net/test?retryWrites=true',{
     useNewUrlParser: true
 });
+mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
